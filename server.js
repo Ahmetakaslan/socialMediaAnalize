@@ -22,7 +22,7 @@ app.get('/socialMediaAnalize/changePage', (req, res) => {
     res.redirect('/socialMediaAnalize/youtube.html');
 });
 
-app.post('/getChannelData', async (req, res) => {
+app.post('/socialMediaAnalize/getChannelData', async (req, res) => {
     const channelUsername = req.body.channelUsername;
     try {
         // Function to get channel ID from username
