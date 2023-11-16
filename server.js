@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '')));
 
-app.get('/', (req, res) => {
+app.get('/socialMediaAnalize', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
