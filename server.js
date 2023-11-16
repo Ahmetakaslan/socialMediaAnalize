@@ -11,17 +11,19 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '')));
 
-app.get('socialMediaAnalize/', (req, res) => {
+app.get('/socialMediaAnalize/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/socialMediaAnalize/youtube.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'youtube.html'));
 });
+app.get('/changePage', (req, res) => {
+    res.redirect('/socialMediaAnalize/youtube.html');
+});
 
 app.post('/getChannelData', async (req, res) => {
     const channelUsername = req.body.channelUsername;
-
     try {
         // Function to get channel ID from username
         const channelId = await getChannelId(channelUsername);
