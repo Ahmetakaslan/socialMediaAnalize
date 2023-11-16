@@ -18,7 +18,7 @@ app.get('/socialMediaAnalize/', (req, res) => {
 app.get('/socialMediaAnalize/youtube.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'youtube.html'));
 });
-app.get('/changePage', (req, res) => {
+app.get('/socialMediaAnalize/changePage', (req, res) => {
     res.redirect('/socialMediaAnalize/youtube.html');
 });
 
