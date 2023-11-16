@@ -18,11 +18,11 @@ app.get('/socialMediaAnalize/', (req, res) => {
 app.get('/socialMediaAnalize/youtube.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'youtube.html'));
 });
-app.get('/socialMediaAnalize/changePage', (req, res) => {
+app.get('/changePage', (req, res) => {
     res.redirect('/socialMediaAnalize/youtube.html');
 });
 
-app.post('/socialMediaAnalize/getChannelData', async (req, res) => {
+app.post('/getChannelData', async (req, res) => {
     const channelUsername = req.body.channelUsername;
     try {
         // Function to get channel ID from username
@@ -112,6 +112,7 @@ app.post('/socialMediaAnalize/getChannelData', async (req, res) => {
 async function getChannelId(username) {
     const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${username}&key=${API_KEY}`;
 
+    
     try {
         const response = await fetch(searchUrl);
         const data = await response.json();

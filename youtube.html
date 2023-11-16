@@ -81,7 +81,6 @@
     <script>
         async function getChannelData() {
             const channelName = document.getElementById('channelName').value;
-            
             const response = await fetch('/getChannelData', {
                 method: 'POST',
                 headers: {
@@ -89,7 +88,6 @@
                 },
                 body: JSON.stringify({ channelUsername: channelName }),
             });
-            window.location.href = '/socialMediaAnalize/getChannelData';
 
             const data = await response.json();
 
