@@ -11,11 +11,11 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '')));
 
-app.get('/socialMediaAnalize', (req, res) => {
+app.get('socialMediaAnalize/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('youtube.html', (req, res) => {
+app.get('/youtube.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'youtube.html'));
 });
 
