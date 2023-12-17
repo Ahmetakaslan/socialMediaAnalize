@@ -1,153 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Data</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            height: 110vh;
-            background-size: cover;
-            background-position: center;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>YouTube Data</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                height: 110vh;
+                background-size: cover;
+                background-position: center;
 
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                display: block;
+                margin: auto;
+            }
+
+            #channelData {
+                margin-top: 20px;
+            }
+
+            canvas {
+                max-width: 100%;
+                margin-top: 20px;
+            }
+            .bottom-left {
+            position: fixed;
+            bottom: 10px;
+            right:  10px;
         }
+        </style>
+    </head>
 
-        h1 {
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: auto;
-        }
-
-        #channelData {
-            margin-top: 20px;
-        }
-
-        canvas {
-            max-width: 100%;
-            margin-top: 20px;
-        }
-        .bottom-left {
-        position: fixed;
-        bottom: 10px;
-        right:  10px;
-    }
-    </style>
-</head>
-
-<body>
-    <h1>YouTube Channel Data</h1>
-    <label for="channelName">Enter YouTube Channel Name:</label>
-    <input type="text" id="channelName" name="channelName">
-    <button onclick="getChannelData()">Get Data</button>
-     <button type="button" class="bottom-left" onclick="">Show Youtube</button>
-     <div id="channelData">
-        <!-- Display channel data dynamically here -->
-    </div>
-
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-        <div style="width: 48%;">
-            <canvas id="commentsChart" width="400" height="200"></canvas>
+    <body>
+        <h1>YouTube Channel Data</h1>
+        <label for="channelName">Enter YouTube Channel Name:</label>
+        <input type="text" id="channelName" name="channelName">
+        <button onclick="getChannelData()">Get Data</button>
+        <button type="button" class="bottom-left" onclick="">Show Youtube</button>
+        <div id="channelData">
+            <!-- Display channel data dynamically here -->
         </div>
-        <div style="width: 48%;">
-            <canvas id="subscriptionsChart" width="400" height="200"></canvas>
+
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+            <div style="width: 48%;">
+                <canvas id="commentsChart" width="400" height="200"></canvas>
+            </div>
+            <div style="width: 48%;">
+                <canvas id="subscriptionsChart" width="400" height="200"></canvas>
+            </div>
         </div>
-    </div>
 
-    <script>
-        async function getChannelData() {
-            const channelName = document.getElementById('channelName').value;
-            const response = await fetch('/getChannelData', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ channelUsername: channelName }),
-            });
+        <script>
+            async function getChannelData() {
+                const channelName = document.getElementById('channelName').value;
+                const response = await fetch('/getChannelData', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ channelUsername: channelName }),
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            // Display data in a nice way (customize as needed)
-            const channelDataDiv = document.getElementById('channelData');
-            channelDataDiv.innerHTML = `
-                <p>ID: ${data.id}</p>
-                <p>Description: ${data.description}</p>
-                <p>Made for Kids: ${data.madeForKids}</p>
-                <p>Country: ${data.country}</p>
-                <p>Subscribers: ${data.subscriberCount}</p>
-                <p>Views: ${data.viewCount}</p>
-                <p>Videos: ${data.videoCount}</p>
-                <p>Total Comments: ${data.totalCommentCount}</p>
-            `;
+                // Display data in a nice way (customize as needed)
+                const channelDataDiv = document.getElementById('channelData');
+                channelDataDiv.innerHTML = `
+                    <p>ID: ${data.id}</p>
+                    <p>Description: ${data.description}</p>
+                    <p>Made for Kids: ${data.madeForKids}</p>
+                    <p>Country: ${data.country}</p>
+                    <p>Subscribers: ${data.subscriberCount}</p>
+                    <p>Views: ${data.viewCount}</p>
+                    <p>Videos: ${data.videoCount}</p>
+                    <p>Total Comments: ${data.totalCommentCount}</p>
+                `;
 
-            // Update charts
-            updateCommentsChart(data.totalCommentCount);
-            updateSubscriptionsChart(data.subscriberCount);
-        }
-        function showYoutube(){
-            
-        }
+                // Update charts
+                updateCommentsChart(data.totalCommentCount);
+                updateSubscriptionsChart(data.subscriberCount);
+            }
+            function showYoutube(){
+                
+            }
 
-        function updateCommentsChart(totalComments) {
-            const commentsChart = new Chart(document.getElementById('commentsChart').getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Comments', 'Remaining'],
-                    datasets: [{
-                        data: [totalComments, 100 - totalComments],
-                        backgroundColor: ['#FF6384', '#DDDDDD'],
-                    }],
-                },
-                options: {
-                    cutout: '75%',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                },
-            });
-        }
+            function updateCommentsChart(totalComments) {
+                const commentsChart = new Chart(document.getElementById('commentsChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Comments', 'Remaining'],
+                        datasets: [{
+                            data: [totalComments, 100 - totalComments],
+                            backgroundColor: ['#FF6384', '#DDDDDD'],
+                        }],
+                    },
+                    options: {
+                        cutout: '75%',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    },
+                }); 
+            }
 
-        function updateSubscriptionsChart(subscriberCount) {
-            const subscriptionsChart = new Chart(document.getElementById('subscriptionsChart').getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Subscribers', 'Remaining'],
-                    datasets: [{
-                        data: [subscriberCount, 100 - subscriberCount],
-                        backgroundColor: ['#36A2EB', '#DDDDDD'],
-                    }],
-                },
-                options: {
-                    cutout: '75%',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                },
-            });
-        }
-    </script>
-</body>
+            function updateSubscriptionsChart(subscriberCount) {
+                const subscriptionsChart = new Chart(document.getElementById('subscriptionsChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Subscribers', 'Remaining'],
+                        datasets: [{
+                            data: [subscriberCount, 100 - subscriberCount],
+                            backgroundColor: ['#36A2EB', '#DDDDDD'],
+                        }],
+                    },
+                    options: {
+                        cutout: '75%',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    },
+                });
+            }
+        </script>
+    </body>
 
-</html>
+    </html>

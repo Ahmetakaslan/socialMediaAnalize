@@ -1,10 +1,12 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const { google } = require('googleapis');
+const cors=require("cors")
 const path = require('path');
 
 const app = express();
-const port = 8000;
+app.use(cors())
+const port = 8004;
 
 const API_KEY = 'AIzaSyDgLq67MOOO8B1gDZtilE86cNKTbEcMLFk'; // Replace with your YouTube API key
 app.use(express.json());
