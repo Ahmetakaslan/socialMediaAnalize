@@ -1,5 +1,5 @@
 // ChatGPT API anahtarınız
-const apiKey = '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';
+const apiKey = process.env.API_KEY2;
 
 // API endpoint URL'si
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
