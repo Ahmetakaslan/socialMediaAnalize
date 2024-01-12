@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/assets/css/div.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url(/arkaplan2.jpeg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+        }
+
+        #Kanalismi,
+        #aboneSayısı,
+        #görüntülenme,
+        #yorum {
+            height: 150px;
+            width: 300px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            color: white;
+            /* Set the text color to white */
+        }
+
+        #Kanalismi {
+            background-color: #0598f6;
+        }
+
+        #aboneSayısı {
+            background-color: #EFA903;
+        }
+
+        #görüntülenme {
+            background-color: #4DEF03;
+        }
+
+        #yorum {
+            background-color: #FD3D10;
+        }
+
+        main {
+            padding: 20px;
+            /* Add padding to the main content */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Kanal Divlerin Başlangıcı  -->
+
+    <div>
+
+        <div style="display: flex; gap: 10px; margin-left: 60px; margin-bottom: 120px;">
+            <div id="Kanalismi">
+                <h1 style="color: aliceblue;">Kanal ismi</h1>
+                <h2 id="gercekKanalismi"></h2>
+            </div>
+
+            <div id="aboneSayısı">
+                <h1 style="color: aliceblue;">Abone Sayısı</h1>
+                <h2 id="gercekaboneSayısı"></h2>
+            </div>
+            <div id="görüntülenme">
+                <h1 style="color: aliceblue;">Video Sayısı</h1>
+                <h2 id="goruntulenmeSayısı"></h2>
+            </div>
+            <div id="yorum">
+                <h1 style="color: aliceblue;">Yorum Sayısı</h1>
+                <h2 id="yorumSayısı"></h2>
+            </div>
+        </div>
+
+
+
+        <div id="aciklama" style="margin-bottom: 20px;">
+            <h1 style="color: aliceblue;">Açıklama</h1>
+            <h2 style="padding-left: 20px;" id="gercekaciklama" ></h2>
+        </div>
+        <div id="AIyorum" >
+            <div id="loadingIndicator" style="display: none;">
+                <!-- Add your circular progress indicator HTML/CSS here -->
+                <div class="loader"></div>
+                <p>Yükleniyor...</p>
+            </div>
+            <h1 id="Başlik">Barış özcan kimdir</h1>
+            <p id="Yorumparagrafi"></p>
+        </div>
+        
+   
+    </div>
+
+    <br>
+    <!-- Kanal Divlerin Bitişi  -->
+
+    <!-- Chartlar  -->
+
+    <div style="display: flex; justify-content: space-between;">
+        <!--Abone Sayısını Geriren Chart  -->
+        <div
+            style="height: 400px; width: 500px; background-color: white; margin-bottom: 50px; border-radius: 50px; padding-top: 80px;">
+            <canvas id="bar-chart" width="800" height="450"></canvas>
+        </div>
+        <!--Görüntülenme Sayısını Getiren Chart  -->
+        <div
+            style="height: 400px; width: 500px; margin-bottom: 50px;  background-color: white; border-radius: 50px; padding-top: 80px;">
+              
+            <canvas id="pie-chart" width="800" height="450"></canvas>
+        </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: space-between;">
+        <!--Yorum Sayısını getiren chartlar-->
+        <div style="height: 400px; width: 500px; background-color: white; border-radius: 50px; padding-top: 80px;">
+            <canvas id="line-chart2" width="800" height="450"></canvas>
+        </div>
+        <!--Video Getiren Chart-->
+        <div style="height: 400px; width: 500px; background-color: white; border-radius: 50px; padding-top: 80px;">
+            <canvas id="bar-chart2" width="800" height="450"></canvas>
+        </div>
+    </div>
+
+    <!-- JavaScript dosyasını bağlayalım -->
+    <script src="/public/fetch/youtube/subscriber.js"></script>
+    <script src="/public/fetch/youtube/view.js"></script>
+    <script src="/public/fetch/youtube/kanal.js"></script>
+    <script src="/public/fetch/youtube/totalcomment.js"></script>
+    <script src="/public/fetch/youtube/videocount.js"></script>
+    </div>
+    <script src="/openai-test.js"></script>
+
+</body>
+
+</html>

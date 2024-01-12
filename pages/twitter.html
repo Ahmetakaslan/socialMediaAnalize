@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/twitter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="menu-icon">
+                <i class="fa-brands fa-x-twitter"></i>
+            </div>
+            <div class="logo">
+                <!-- <div class="logo-two">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>  -->
+                <div class="logo-circle">           
+                    <span class="circle circle-1"></span>
+                    <span class="circle circle-2"></span>
+                </div>
+                <p>twitter</p>
+            </div>
+            <div class="shop-icon">
+                <i class="fa-solid fa-retweet"></i>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-2">
+                <h1>Twitter Veri  Analizine Hoşgeldiniz</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia iure ad ullam alias beatae corrupti?</p>
+                <div id="uyariMesaji" style="display: none; color: red;">
+                    Lütfen bir  kanal adı girin.
+                </div>
+                <div class="aramaKutusu", onclick="searchChannel()">
+                    <input type="text" id="channelInput" placeholder="Aramak İstediğiniz Hesabı Giriniz" spellcheck="false">
+                    <a href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a> 
+                </div>  
+                          
+            </div>
+            <div class="col-2">
+                <div class="box">
+                    <video src="/assets/video/twitter.mp4" autoplay muted loop></video>
+                    <img src="/assets/img/logo3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>    
+    <script>
+        async function searchChannel() {
+            const channelInput = document.getElementById('channelInput');
+            const channelUsername = channelInput.value.trim();
+    
+            // Uyarı mesajını gizle
+            document.getElementById('uyariMesaji').style.display = 'none';
+    
+            if (channelUsername) {
+                // Gösterim geri bildirimini göster
+           
+    
+                // Diğer sayfaya yönlendir ve verileri gönder
+                window.location.href = `/socialMediaAnalize/chartTwitter.html?channel=${channelUsername}`;
+            } else {
+                // Boş giriş durumunu ele al
+                document.getElementById('uyariMesaji').style.display = 'block';
+            }
+        }
+    </script>
+    
+
+
+
+</body>
+</html>

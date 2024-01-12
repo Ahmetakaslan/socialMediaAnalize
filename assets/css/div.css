@@ -1,0 +1,96 @@
+#Kanalismi{
+    height: 150px;
+    width: 300px;
+    background-color: #0598f6;
+    border-radius: 30px;
+    display: flex;
+     flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+
+    
+}
+
+#aboneSayısı{
+    height: 150px;
+    width: 300px;
+    background-color: #EFA903;
+    border-radius: 30px;
+    display: flex;
+     flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+
+    
+}
+#AIyorum{
+
+  overflow: auto;
+  height: 200px; width: 600px;  
+  background-color: aquamarine;
+  border-radius: 10px;
+  display: flex;
+  margin-left: 30%;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+#görüntülenme{
+    height: 150px;
+    width: 300px;
+    background-color: #4DEF03;
+    border-radius: 30px;
+    display: flex;
+     flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+
+    
+}
+#yorum{
+    height: 150px;
+    width: 300px;
+    background-color: #FD3D10 ;
+    border-radius: 30px;
+    display: flex;
+     flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+
+    
+}
+#aciklama{
+  height: 200px; width: 600px;  
+  background-color: #929B9A;
+  border-radius: 30px;
+  display: flex;
+  margin-left: 30%;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+ 
+}
+
+
+  .body{
+    width:100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)),url(arkaplan2.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

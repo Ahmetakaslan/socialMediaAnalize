@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>YouTube Veri Analizi</title>
+        <link rel="stylesheet" href="/aramaStyle.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-circle">           
+                <span class="circle circle-1"></span>
+                <span class="circle circle-2"></span>
+            </div>
+            <h2>youtube</h2>
+        </div> 
+    </header>
+    <!-- ABOUT-START -->
+    <div class="about">
+        <div class="about-picture picture-1">
+            <div class="col-1">
+                <img src="/assets/img/barış-özcan.jpeg" alt="">
+                <img src="/assets/img/ruhi-cenet.jpg" alt="">
+            </div>
+            <div class="col-2">
+                <img src="/assets/img/unnamed (1).jpg" alt="">
+                <img src="/assets/img/channels4_profile (2).jpg" alt="">
+            </div>
+            <div class="col-3">
+                <img src="/assets/img/channels4_profile.jpg" alt="">
+                <img src="/assets/img/umidi.jpg" alt="">
+            </div>
+        </div>
+        <div class="about-info" >
+            <h1>You Tube <br> Veri Analizine Hoşgeldiniz</h1>
+            <p>Aramak İstediğiniz You Tube kanalını yazarak verilerine ulaşıp kanal hakkında bilgi alabilirsiniz </p>
+            <!-- <div class="btn">
+                <a href="#" class="btn-1">Arama</a>
+                <a href="#" class="btn-2">What is it?</a>
+            </div> -->
+        </div>
+        <div class="about-picture picture-2">
+            <div class="col-4">
+                <img src="/assets/img/alper-rende.webp" alt="">
+                <img src="/assets/img/fırat-sobutay.jpg" alt="">
+            </div>
+            <div class="col-5">
+                <img src="/assets/img/enes-batur.jpg" alt="">
+                <img src="/assets/img/delimine.webp" alt="">
+            </div>
+            <div class="col-6">
+                <img src="/assets/img/kafalar.webp" alt="">
+                <img src="/assets/img/reymen.webp" alt="">
+            </div>
+        </div>
+
+
+    </div>
+    <!-- ABOUT-FINISH -->
+    <!-- LINE START -->
+    <div class="line">
+        <span class="limit"></span>
+        <span class="line-circle">01</span>
+    </div>
+
+    <!-- LINE FINISH -->
+    <!-- CONTEND START -->
+    <div class="container">
+        <div class="content">
+       
+            <img src="/assets/img/veri1.jpg" alt="">
+            <img src="/assets/img/veri2.webp" alt="">
+            <img src="/assets/img/veri3.webp" alt="">
+            <img src="/assets/img/veri4.jpg" alt="">
+        </div>
+        <div class="information">
+            <h4>YouTube Veri Analizi </h4>
+            <h2>Youtube deki kanallardan veri analiz ederek kanallar hakkında bilgiler alabilirsiniz </h2>
+            <p><h4>Analiz, Batı dünyasının modern dünya haline geldiğinde ilk anlattığı hikayedir. <br> David Berlinski</h4> </p>
+          
+        </div>
+    </div>
+        <!-- CONTEND FINISH -->
+    <div class="line">
+        <span class="limit"></span>
+        <span class="line-circle">02</span>
+    </div>
+    <!-- FOOTER-START -->
+    <footer class="footer">
+        <div class="footer-picture"></div>
+        <div class="footer-info">
+            <h4>Experience more <br> together </h4>
+            <p> Hexagon ailesi olarak <br> yaptığımız bu web sitesini siz değerli üyelerimiz için kullanıma sunduk.</p>
+            <a href="#"> Biz Kimiz?<span></span></a>
+        </div>
+            
+    </footer>
+    <!-- FOOTER-FINISH -->
+ <!-- ARAMA BUTONU Başlangıç -->
+ <div id="uyariMesaji" style="display: none; color: red;">
+    Lütfen bir  kanal adı girin.
+</div>
+ <div class="aramaKutusu">
+    <input id="channelInput" type="text" placeholder="Aramak İstediğiniz Kanalı Giriniz" spellcheck="false">
+    <a href="#" onclick="searchChannel()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </a>
+</div>
+<!-- ARAMA BUTONU BİTİŞ -->
+
+<!-- Yükleme çemberi ve Uyarı Mesajı -->
+<div class="loading-circle" id="loadingCircle">
+    <i class="fa-solid fa-circle-notch fa-spin fa-3x"></i>
+</div>
+<div id="uyariMesaji" style="display: none; color: red;">
+    Lütfen bir YouTube kanal adı girin.
+</div>
+
+<script>
+    async function searchChannel() {
+        const channelInput = document.getElementById('channelInput');
+        const channelUsername = channelInput.value.trim();
+
+        // Uyarı mesajını gizle
+        document.getElementById('uyariMesaji').style.display = 'none';
+
+        if (channelUsername) {
+            // Gösterim geri bildirimini göster
+            document.getElementById('loadingCircle').style.display = 'block';
+
+            // Diğer sayfaya yönlendir ve verileri gönder
+            window.location.href = `/socialMediaAnalize/chart.html?channel=${channelUsername}`;
+        } else {
+            // Boş giriş durumunu ele al
+            document.getElementById('uyariMesaji').style.display = 'block';
+        }
+    }
+</script>
+<script src="/openai-test.js"></script>
+</body>
+</html>

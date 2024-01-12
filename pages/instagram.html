@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/instagram.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  
+    <div class="container">
+        <header class="header">
+            <div class="menu-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="logo">
+                <!-- <div class="logo-two">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>  -->
+                <div class="logo-circle">
+                    <span class="circle circle-1"></span>
+                    <span class="circle circle-2"></span>
+                </div>
+                <p>instagram</p>
+            </div>
+            <div class="shop-icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </header>
+    
+        <div class="row">
+            <div class="col-2">
+                <h1>İnstagram Veri Analizine Hoşgeldiniz</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, nobis repudiandae. Incidunt tempore
+                    sit provident?</p>
+                    <div id="uyariMesaji" style="display: none; color: red;">
+                        Lütfen bir  kanal adı girin.
+                    </div>
+                <div class="aramaKutusu">
+                    <input type="text" id="channelInput" placeholder="Aramak İstediğiniz Hesabı Giriniz"
+                        spellcheck="false">
+                    <a href="#" onclick="searchChannel()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+              
+            </div>
+            <div class="col-2" id="circle-ring">
+                <div class="ring">
+                    <img src="/assets/img/img2.webp" alt="">
+                    <span class="circle"></span>
+                </div>
+                <div class="ring-two">
+                    <span class="circle-two"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function searchChannel() {
+            const channelInput = document.getElementById('channelInput');
+            const channelUsername = channelInput.value.trim();
+
+            // Uyarı mesajını gizle
+            document.getElementById('uyariMesaji').style.display = 'none';
+
+            if (channelUsername) {
+                // Diğer sayfaya yönlendir ve verileri gönder
+                window.location.href = `/socialMediaAnalize/instaIstatistik.html`;
+            } else {
+                // Boş giriş durumunu ele al
+                document.getElementById('uyariMesaji').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
